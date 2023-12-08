@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Organizer</title>
+  <link rel="Stylesheet" href="styles.css">
+  <link rel="Renderer Process" href="renderer.js">
+  
+</head>
+<body>
+  <div class="container">
+      <h1>File Organizer</h1>
+  <form id="organizerForm">
+    <label for="Tag">Tag:</label>
+    <input type="text" id="Tag" required>
+    <br>
+    <label for="filesname">Files Name:</label>
+    <input type="text" id="filesname" required>
+        <button onclick="organizeFiles()">Organize Files</button>
+    <button onclick="resetForm()">Reset Form</button>
+    <button onclick="showOrganizedFiles()">Show Organized Files</button>
+
+    
+  </form>
+   
+
+    <label for="fileType">File Type:</label>
+    <select id="fileType">
+      <option value="txt">Text Files</option>
+      <option value="jpg">Image Files</option>
+      <option value="other">Other Files</option>
+      <label for="searchInput">Search Files:</label>
+       
+       
+
+    </select>
+      
+    
+
+
+  <tbody id="sortedFiles"></tbody>
+      
+        
+</table>  
+
+
+  <script src="renderer.js"></script>
+    
+</body>
+</html>

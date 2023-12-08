@@ -1,0 +1,27 @@
+const { ipcRenderer } = require('electron');
+function resetForm() {
+  document.getElementById('sourceDir').value = '';
+  document.getElementById('destinationDir').value = '';
+  document.getElementById('fileType').value = 'txt';
+}
+ipcRenderer.on('reset-form', () => {
+  resetForm();
+});
+
+const { ipcRenderer } = require('electron');
+
+document.addEventListener('DOMContentLoaded', () => {
+  const organizerForm = document.getElementById('organizerForm');
+
+  organizerForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const sourceDir = document.getElementById('sourceDir').value;
+    const destinationDir = document.getElementById('destinationDir').value;
+    const fileType = document.getElementById('fileType').value;
+
+    const formData = { sourceDir, destinationDir, fileType };
+    
+    ipcRenderer.send('organize-files', formData);
+  });
+})
